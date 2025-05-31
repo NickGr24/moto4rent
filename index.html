@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>moto4rent - Închiriere motociclete</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="preloader">
+        <div class="preloader-road"></div>
+        <div class="preloader-moto">
+            <img src="preload.png" alt="">
+        </div>
+      </div>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Moto4Rent">
+        </div>
+        <nav>
+            <a href="#">ACASĂ</a>
+            <a href="#">DESPRE NOI</a>
+            <a href="#">MOTOCICLETE</a>
+            <a href="#">CONTACTE</a>
+        </nav>
+        <div class="cont-personal">
+            <a href="#">CONT PERSONAL</a>
+        </div>
+    </header>
+    <section class="hero">
+        <img class="hero-bg" id="hero-bg" src="background1.jpg" alt="Motocicliști pe drum">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 data-aos="fade-up" id="hero-title">Cea mai bună modalitate de a te relaxa în weekend.</h1>
+            <p data-aos="fade-up" data-aos-delay="150" id="hero-subtitle">Obține cele mai bune prețuri pentru plimbările de vineri până luni.</p>
+        </div>
+        <div class="slider-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </section>
+
+    <section class="how-rent">
+        <div class="how-rent__head">
+            <div class="how-rent__icon">
+                <img src="question.png" alt="Etape închiriere">
+            </div>
+            <h2>CÂT DE UȘOR ESTE SĂ ÎCHIRIEZI O MOTOCICLETĂ?</h2>
+            <p class="how-rent__subtitle">Doar trei etape simple</p>
+        </div>
+        <div class="how-rent__body">
+            <div class="how-rent__img">
+                <img src="motorcycle.png" alt="Motocicletă"> 
+            </div>
+            <div class="how-rent__steps">
+                <div class="how-rent__step" data-aos="zoom-in" data-aos-delay="0">
+                    <div class="how-rent__step-icon">
+                        <img src="icon1.png" alt="">
+                    </div>
+                    <div class="how-rent__step-text">Alege motocicleta dorită</div>
+                    <div class="how-rent__step-num">1</div>
+                </div>
+                <div class="how-rent__step" data-aos="zoom-in" data-aos-delay="150">
+                    <div class="how-rent__step-icon">
+                        <img src="icon2.png" alt="">
+                    </div>
+                    <div class="how-rent__step-text">Contactează-ne pentru a face închirierea</div>
+                    <div class="how-rent__step-num">2</div>
+                </div>
+                <div class="how-rent__step" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="how-rent__step-icon" >
+                        <img src="icon3.png" alt="">
+                    </div>
+                    <div class="how-rent__step-text">Bucură-te de experiență</div>
+                    <div class="how-rent__step-num">3</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="moto-catalog">
+        <h2>MOTOCICLETE DISPONIBILE</h2>
+        <p class="moto-catalog__subtitle">Poți alege dintr-o gamă largă de tipuri și modele</p>
+        <div class="moto-catalog__filters">
+            <button class="filter-btn active" data-filter="toate">Toate</button>
+            <button class="filter-btn" data-filter="turism">Turism</button>
+            <button class="filter-btn" data-filter="sport">Sport</button>
+            <button class="filter-btn" data-filter="aventura">Aventură</button>
+            <button class="filter-btn" data-filter="naked">Naked</button>
+        </div>
+        <div class="moto-catalog__cards">
+    
+            <div class="moto-card" data-category="toate,sport">
+                <div class="moto-card__img">
+                    <img src="bmw-r1250gs.png" alt="BMW R1250GS">
+                </div>
+                <div class="moto-card__name">BMW R1250GS</div>
+                <div class="moto-card__bottom">
+                    <div class="moto-card__price">
+                        <span class="moto-card__price-val">63</span> <span class="moto-card__euro">€/zi</span>
+                    </div>
+                    <img class="moto-card__icon" src="calendar.png" alt="calendar">
+                </div>
+                <a href="#" class="moto-card__btn">Detalii</a>
+            </div>
+    
+            <div class="moto-card" data-category="toate,sport">
+                <div class="moto-card__img">
+                    <img src="bmw-r1250rt.png" alt="BMW R1250 RT">
+                </div>
+                <div class="moto-card__name">BMW R1250 RT</div>
+                <div class="moto-card__bottom">
+                    <div class="moto-card__price">
+                        <span class="moto-card__price-val">70</span> <span class="moto-card__euro">€/zi</span>
+                    </div>
+                    <img class="moto-card__icon" src="calendar.png" alt="calendar">
+                </div>
+                <a href="#" class="moto-card__btn">Detalii</a>
+            </div>
+    
+            <div class="moto-card" data-category="toate,sport">
+                <div class="moto-card__img">
+                    <img src="bmw-f750gs.png" alt="BMW F750 GS">
+                </div>
+                <div class="moto-card__name">BMW F750 GS</div>
+                <div class="moto-card__bottom">
+                    <div class="moto-card__price">
+                        <span class="moto-card__price-val">65</span> <span class="moto-card__euro">€/zi</span>
+                    </div>
+                    <img class="moto-card__icon" src="calendar.png" alt="calendar">
+                </div>
+                <a href="#" class="moto-card__btn">Detalii</a>
+            </div>
+    
+            <div class="moto-card" data-category="toate,turism">
+                <div class="moto-card__img">
+                    <img src="honda-nc750x.png" alt="HONDA NC 750X">
+                </div>
+                <div class="moto-card__name">HONDA NC 750X</div>
+                <div class="moto-card__bottom">
+                    <div class="moto-card__price">
+                        <span class="moto-card__price-val">57</span> <span class="moto-card__euro">€/zi</span>
+                    </div>
+                    <img class="moto-card__icon" src="calendar.png" alt="calendar">
+                </div>
+                <a href="#" class="moto-card__btn">Detalii</a>
+            </div>
+    
+            <div class="moto-card" data-category="toate,naked">
+                <div class="moto-card__img">
+                    <img src="bmw-naked.png" alt="BMW NAKED">
+                </div>
+                <div class="moto-card__name">BMW NAKED</div>
+                <div class="moto-card__bottom">
+                    <div class="moto-card__price">
+                        <span class="moto-card__price-val">67</span> <span class="moto-card__euro">€/zi</span>
+                    </div>
+                    <img class="moto-card__icon" src="calendar.png" alt="calendar">
+                </div>
+                <a href="#" class="moto-card__btn">Detalii</a>
+            </div>
+
+        </div>
+    </section>
+    
+
+    <script src="slider.js"></script>
+    <script src="filter.js"></script>
+    <script>
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('preloader').classList.add('hidden');
+            }, 1600);
+        });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('preloader').classList.add('hidden');
+                setTimeout(function() {
+                    AOS.init({
+                        duration: 800,
+                        once: false
+                    });
+                    setTimeout(() => AOS.refresh(), 100);
+                }, 800); 
+            }, 1600); 
+        });
+    </script>
+</body>
+</html>
