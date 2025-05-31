@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Motociclete Premium - Închirieri Aventură</title>
+<link rel="stylesheet" href="moto.css">
+<link rel="stylesheet" href="nav.css">
+<link rel="stylesheet" href="footer.css">
+<!-- Добавлено для отображения иконок -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Moto4Rent">
+        </div>
+        <nav>
+            <a href="index.html">ACASĂ</a>
+            <a href="about.html">DESPRE NOI</a>
+            <a href="moto.html">MOTOCICLETE</a>
+            <a href="contacts.html">CONTACTE</a>
+        </nav>
+        <div class="cont-personal">
+            <a href="login.html">CONT PERSONAL</a>
+        </div>
+    </header>
+
+<div class="container">
+    <!-- Filter Section -->
+    <div class="section filter-section">
+        <h2>🔍 Filtrare Motociclete</h2>
+        <div class="filter-controls">
+            <div class="filter-group">
+                <label>Preț minim (€/zi):</label>
+                <input type="number" id="minPrice" value="50" min="0">
+            </div>
+            <div class="filter-group">
+                <label>Preț maxim (€/zi):</label>
+                <input type="number" id="maxPrice" value="200" min="0">
+            </div>
+            <button class="filter-btn" onclick="applyFilter()">Filtrează</button>
+        </div>
+        <div class="type-filter">
+            <button class="type-btn" onclick="filterByType(this, 'all')" data-type="all">Toate</button>
+            <button class="type-btn" onclick="filterByType(this, 'adventure')" data-type="adventure">🏔️ Aventură</button>
+            <button class="type-btn" onclick="filterByType(this, 'touring')" data-type="touring">🛣️ Turism</button>
+            <button class="type-btn" onclick="filterByType(this, 'naked')" data-type="naked">⚡ Naked</button>
+            <button class="type-btn" onclick="filterByType(this, 'sport')" data-type="sport">🏁 Sport</button>
+        </div>
+    </div>
+
+    <!-- Motorcycles Section -->
+    <div class="section">
+        <h2>🏍️ Selectează Motocicleta</h2>
+        <div class="motorcycles-grid" id="motorcycleGrid">
+            <div class="motorcycle-card" data-type="adventure" data-price="100" onclick="selectMotorcycle(this)">
+                <div class="motorcycle-image"><img width="150" src="bmw-f750gs.png" alt=""></div>
+                <h3>BMW F750 GS</h3>
+                <div class="motorcycle-price">100 €/zi</div>
+                <p class="motorcycle-description">Perfectă pentru aventuri off-road și călătorii lungi. Motor puternic și suspensii performante.</p>
+            </div>
+            
+            <div class="motorcycle-card" data-type="naked" data-price="120" onclick="selectMotorcycle(this)">
+                <div class="motorcycle-image"><img width="150" height="100" src="ducatimonster.png" alt=""></div>
+                <h3>Ducati Monster</h3>
+                <div class="motorcycle-price">120 €/zi</div>
+                <p class="motorcycle-description">Design agresiv pentru conducerea urbană. Manevrabilitate exceptionala și stil unic.</p>
+            </div>
+            
+            <div class="motorcycle-card" data-type="sport" data-price="150" onclick="selectMotorcycle(this)">
+                <div class="motorcycle-image"><img width="150" height="150" src="yamahar1.png" alt=""></div>
+                <h3>Yamaha R1</h3>
+                <div class="motorcycle-price">150 €/zi</div>
+                <p class="motorcycle-description">Performanță supremă pe circuit. Tehnologie avansată și viteză maximă.</p>
+            </div>
+            
+            <div class="motorcycle-card" data-type="touring" data-price="130" onclick="selectMotorcycle(this)">
+                <div class="motorcycle-image"><img src="data:image/jpeg;base64,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JS/7Y3G6NwZiE0hvhkMgzbYEAtdyFhdZ92kdmDa1xqaQthq9Xg5MmtzJHhf+tz0PUaW2nRVFI7BV08lO7S7m9x3ofC/1aSg2XsncV9fRxTxvhaJWXcw/VJdZ7SQ04jkdRrnqFEbvbSp9nbRqYqyR8kcUfDBiAdFI5zWl8bmAZ3vb1abnJYLG+PkWC+ti5l/UXF15a9gIa2xccmtjaS4+Q5n4FBc7amZNUSyRR8CF8jnshByjBtcZZC+ZsMhe2gWb9jm7BqakVb2/7PTHuE6SS/VA8meL1weapbodmFXVua+pa6kpciWnKeTnYNI7g83WP6p1W9tm0EVPEyGFgjiYMLWjQD8TqSTmSboLlERAREQEREBERAREQFTqIGPGF7WvaeTgHD2KqIgxubcHZTszs+nH+GJrPk0BSeydg0tLf6PTRQ31McbWE+pAufipFEBERAREQEREBERAREQEREBERAXmSMOBDgHA6gi4PwK9Igx+XcfZjjc7PprnM/1LB9wUjszYlLTX+j08MF9eHG2O/rhAur9EBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERB/9k=" alt=""></div>
+                <h3>Honda Gold Wing</h3>
+                <div class="motorcycle-price">130 €/zi</div>
+                <p class="motorcycle-description">Confort maxim pentru călătorii lungi. Sistem audio și spațiu de depozitare.</p>
+            </div>
+            
+            <div class="motorcycle-card" data-type="adventure" data-price="110" onclick="selectMotorcycle(this)">
+                <div class="motorcycle-image"><img src="https://omoimot.ru/photos/14993532403164-KTM-1290-Super-Adventure-R-2017-xl.jpg" alt=""></div>
+                <h3>KTM 1290 Adventure</h3>
+                <div class="motorcycle-price">110 €/zi</div>
+                <p class="motorcycle-description">Putere și versatilitate pentru orice teren. Suspensii adaptive și protecții complete.</p>
+            </div>
+            
+            <div class="motorcycle-card" data-type="sport" data-price="140" onclick="selectMotorcycle(this)">
+                <div class="motorcycle-image"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRl-U2gi3olyxqWxPPG_JqF5v3QnAFMwN_WUQ&s" alt=""></div>
+                <h3>Kawasaki Ninja</h3>
+                <div class="motorcycle-price">140 €/zi</div>
+                <p class="motorcycle-description">Sportivă pură cu design aerodinamic. Accelerație impresionantă și handling precis.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Equipment Section -->
+    <div class="section">
+        <h2>🛡️ Echipament de Protecție</h2>
+        <div class="equipment-grid">
+            <div class="equipment-item" onclick="selectEquipment(this)">
+                <div class="equipment-icon">🪖</div>
+                <h4>Cască</h4>
+                <p>Protecție completă a capului</p>
+            </div>
+            
+            <div class="equipment-item" onclick="selectEquipment(this)">
+                <div class="equipment-icon">🧥</div>
+                <h4>Jachetă</h4>
+                <p>Rezistentă la impact și abraziune</p>
+            </div>
+            
+            <div class="equipment-item" onclick="selectEquipment(this)">
+                <div class="equipment-icon">🧤</div>
+                <h4>Mănuși</h4>
+                <p>Grip superior și protecție mâini</p>
+            </div>
+            
+            <div class="equipment-item" onclick="selectEquipment(this)">
+                <div class="equipment-icon">👖</div>
+                <h4>Pantaloni</h4>
+                <p>Protecție genunchi și coapse</p>
+            </div>
+            
+            <div class="equipment-item" onclick="selectEquipment(this)">
+                <div class="equipment-icon">👢</div>
+                <h4>Încălțăminte</h4>
+                <p>Protecție gleznă și talpă</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Calendar Section -->
+    <div class="section">
+        <h2>📅 Selectează Perioada</h2>
+        <div class="calendar-container">
+            <div class="date-input-group">
+                <label for="startDate">📅 Data început:</label>
+                <input type="date" id="startDate">
+            </div>
+            <div class="date-input-group">
+                <label for="endDate">📅 Data sfârșit:</label>
+                <input type="date" id="endDate">
+            </div>
+            <button class="reserve-btn" onclick="makeReservation()">
+                🚀 Rezervă Acum
+            </button>
+        </div>
+    </div>
+
+    <!-- Messages Container -->
+    <div id="messagesContainer"></div>
+</div>
+
+    <footer class="footer-section">
+        <div class="container">
+            <div class="footer-main">
+                <div class="logo-section">
+                    <a href="#" class="logo">
+                        <div class="logo-line1">
+                            MOTO<span class="logo-number">4</span>RENT
+                        </div>
+                    </a>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/" class="social-link facebook" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.instagram.com" class="social-link instagram" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.youtube.com" class="social-link youtube" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="https://www.tiktok.com" class="social-link tiktok" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <div class="info-grid">
+                    <div class="info-column">
+                        <h3>Navighează</h3>
+                        <ul>
+                            <li>
+                                <div class="info-icon"><i class="fa-solid fa-motorcycle"></i></div>
+                                <span>Motociclete</span>
+                            </li>
+                            <li>
+                                <div class="info-icon"><i class="fa-solid fa-up-long"></i></div>
+                                <span>Cursuri de perfecionare</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="info-column">
+                        <h3>Informaii utile</h3>
+                        <ul>
+                            <li>
+                                <div class="info-icon"><i class="fa-solid fa-money-check"></i></div>
+                                <span>Metodă de plată</span>
+                            </li>
+                            <li>
+                                <div class="info-icon"><i class="fa-solid fa-question"></i></div>
+                                <span>Întrebări frecvente</span>
+                            </li>
+                            <li>
+                                <div class="info-icon"><i class="fa-solid fa-info"></i></div>
+                                <span>Despre noi</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="info-column">
+                        <h3>Contacte</h3>
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fa-solid fa-globe"></i></div>
+                            <span>str Independenței 7</span>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+                            <span>0 (60) 998 803</span>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+                            <span>onica.damian@mail.ru</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+<script>
+    let selectedMotorcycle = null;
+    let selectedEquipment = [];
+    let currentTypeFilter = 'all';
+
+    // Initialize dates
+    function initializeDates() {
+        const today = new Date();
+        const tomorrow = new Date(today);
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        
+        document.getElementById('startDate').value = today.toISOString().split('T')[0];
+        document.getElementById('endDate').value = tomorrow.toISOString().split('T')[0];
+    }
+
+    // Select motorcycle
+    function selectMotorcycle(element) {
+        // Remove previous selection
+        document.querySelectorAll('.motorcycle-card').forEach(card => {
+            card.classList.remove('selected');
+            const indicator = card.querySelector('.selected-indicator');
+            if (indicator) indicator.remove();
+        });
+        
+        // Add selection
+        element.classList.add('selected');
+        selectedMotorcycle = element;
+        
+        // Add selection indicator
+        const indicator = document.createElement('div');
+        indicator.className = 'selected-indicator';
+        indicator.innerHTML = '✓';
+        element.appendChild(indicator);
+        
+        showMessage('Motocicletă selectată: ' + element.querySelector('h3').textContent, 'info');
+    }
+
+    // Select equipment
+    function selectEquipment(element) {
+        element.classList.toggle('selected');
+        const equipmentName = element.querySelector('h4').textContent;
+        
+        if (element.classList.contains('selected')) {
+            selectedEquipment.push(equipmentName);
+            
+            // Add selection indicator
+            const indicator = document.createElement('div');
+            indicator.className = 'selected-indicator';
+            indicator.innerHTML = '✓';
+            element.appendChild(indicator);
+        } else {
+            selectedEquipment = selectedEquipment.filter(item => item !== equipmentName);
+            
+            // Remove selection indicator
+            const indicator = element.querySelector('.selected-indicator');
+            if (indicator) indicator.remove();
+        }
+        
+        showMessage(`Echipament ${element.classList.contains('selected') ? 'adăugat' : 'eliminat'}: ${equipmentName}`, 'info');
+    }
+
+    // Filter by type
+    function filterByType(button, type) {
+        // Update button states
+        document.querySelectorAll('.type-btn').forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        
+        currentTypeFilter = type;
+        applyFilter();
+    }
+
+    // Apply filters
+    function applyFilter() {
+        const minPrice = parseInt(document.getElementById('minPrice').value) || 0;
+        const maxPrice = parseInt(document.getElementById('maxPrice').value) || 999;
+        const motorcycles = document.querySelectorAll('.motorcycle-card');
+        let visibleCount = 0;
+        
+        motorcycles.forEach(moto => {
+            const price = parseInt(moto.dataset.price);
+            const type = moto.dataset.type;
+            const matchesPrice = price >= minPrice && price <= maxPrice;
+            const matchesType = currentTypeFilter === 'all' || type === currentTypeFilter;
+            
+            if (matchesPrice && matchesType) {
+                moto.classList.remove('hidden');
+                visibleCount++;
+            } else {
+                moto.classList.add('hidden');
+            }
+        });
+        
+        showMessage(`Găsite ${visibleCount} motociclete conform filtrelor.`, 'info');
+    }
+
+    // Make reservation
+    function makeReservation() {
+        const startDate = document.getElementById('startDate').value;
+        const endDate = document.getElementById('endDate').value;
+        
+        // Validation
+        if (!selectedMotorcycle) {
+            showMessage('Te rugăm să selectezi o motocicletă.', 'error');
+            return;
+        }
+        
+        if (!startDate || !endDate) {
+            showMessage('Te rugăm să alegi perioada de rezervare.', 'error');
+            return;
+        }
+        
+        if (new Date(startDate) >= new Date(endDate)) {
+            showMessage('Data de sfârșit trebuie să fie după data de început.', 'error');
+            return;
+        }
+        
+        // Show processing message
+        showMessage('Se procesează rezervarea...', 'info');
+        
+        // Simulate booking process
+        setTimeout(() => {
+            const success = Math.random() > 0.2; // 80% success rate
+            
+            if (success) {
+                const motorcycleName = selectedMotorcycle.querySelector('h3').textContent;
+                const equipmentCount = selectedEquipment.length;
+                const message = `REZERVARE CU SUCCES!\n\nMotocicletă: ${motorcycleName}\nEchipament selectat: ${equipmentCount} piese\nPerioada: ${startDate} - ${endDate}`;
+                showMessage(message, 'success');
+            } else {
+                showMessage('REZERVARE EROARE!\n\nA apărut o problemă în timpul rezervării. Te rugăm să încerci din nou sau să ne contactezi pentru asistență.', 'error');
+            }
+        }, 2000);
+    }
+
+    // Show messages
+    function showMessage(text, type) {
+        const container = document.getElementById('messagesContainer');
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `message ${type}`;
+        messageDiv.innerHTML = text.replace(/\n/g, '<br>');
+        
+        container.appendChild(messageDiv);
+        
+        // Animate in
+        setTimeout(() => messageDiv.classList.add('show'), 100);
+        
+        // Remove after delay (longer for success/error messages)
+        const delay = (type === 'success' || type === 'error') ? 8000 : 3000;
+        setTimeout(() => {
+            messageDiv.style.opacity = '0';
+            messageDiv.style.transform = 'translateY(-20px)';
+            setTimeout(() => messageDiv.remove(), 500);
+        }, delay);
+    }
+
+    // Initialize on load
+    window.addEventListener('load', () => {
+        initializeDates();
+        
+        // Set default type filter
+        document.querySelector('.type-btn[data-type="all"]').classList.add('active');
+        
+        // Initial filter application
+        applyFilter();
+        
+        // Show welcome message
+        setTimeout(() => {
+            showMessage('Bine ai venit! Selectează motocicleta dorită pentru a începe rezervarea.', 'info');
+        }, 1000);
+    });
+</script>
+
+</body>
+</html>
