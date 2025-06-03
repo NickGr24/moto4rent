@@ -448,6 +448,10 @@ body, html {
     margin-left: 5px;
 }
 
+.moto-bg{
+    border-radius: 10%;
+}
+
 .moto-card__btn {
     background: #ff8833;
     color: #fff;

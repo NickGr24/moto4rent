@@ -21,22 +21,24 @@
         </div>
       </div>
     <header>
-        <div class="logo">
-            <img src="logo.png" alt="Moto4Rent">
-        </div>
-        <nav>
-            <a href="#">ACASĂ</a>
-            <a href="about.html">DESPRE NOI</a>
-            <a href="moto.html">MOTOCICLETE</a>
-            <a href="contacts.html">CONTACTE</a>
-
-
-
-        </nav>
-        <div class="cont-personal">
-            <a href="login.html">CONT PERSONAL</a>
-        </div>
-    </header>
+    <div class="burger-menu" id="burger-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div class="logo">
+        <img src="logo.png" alt="Moto4Rent">
+    </div>
+    <nav id="main-nav">
+        <a href="#">ACASĂ</a>
+        <a href="about.html">DESPRE NOI</a>
+        <a href="moto.html">MOTOCICLETE</a>
+        <a href="contacts.html">CONTACTE</a>
+    </nav>
+    <div class="cont-personal">
+        <a href="login.html">CONT PERSONAL</a>
+    </div>
+</header>
     <section class="hero">
         <img class="hero-bg" id="hero-bg" src="background1.jpg" alt="Motocicliști pe drum">
         <div class="hero-overlay"></div>
@@ -100,7 +102,7 @@
             <button class="filter-btn" data-filter="naked">Naked</button>
         </div>
         <div class="moto-catalog__cards">
-    
+
             <div class="moto-card" data-category="toate,sport">
                 <div class="moto-card__img">
                     <img src="bmw-r1250gs.png" alt="BMW R1250GS">
@@ -110,7 +112,6 @@
                     <div class="moto-card__price">
                         <span class="moto-card__price-val">63</span> <span class="moto-card__euro">€/zi</span>
                     </div>
-                    <img class="moto-card__icon" src="calendar.png" alt="calendar">
                 </div>
                 <a href="#" class="moto-card__btn">Detalii</a>
             </div>
@@ -124,7 +125,6 @@
                     <div class="moto-card__price">
                         <span class="moto-card__price-val">70</span> <span class="moto-card__euro">€/zi</span>
                     </div>
-                    <img class="moto-card__icon" src="calendar.png" alt="calendar">
                 </div>
                 <a href="#" class="moto-card__btn">Detalii</a>
             </div>
@@ -138,9 +138,8 @@
                     <div class="moto-card__price">
                         <span class="moto-card__price-val">65</span> <span class="moto-card__euro">€/zi</span>
                     </div>
-                    <img class="moto-card__icon" src="calendar.png" alt="calendar">
                 </div>
-                <a href="#" class="moto-card__btn">Detalii</a>
+                <a href="detalii_bmwf750gs.html" class="moto-card__btn">Detalii</a>
             </div>
     
             <div class="moto-card" data-category="toate,turism">
@@ -152,9 +151,8 @@
                     <div class="moto-card__price">
                         <span class="moto-card__price-val">57</span> <span class="moto-card__euro">€/zi</span>
                     </div>
-                    <img class="moto-card__icon" src="calendar.png" alt="calendar">
                 </div>
-                <a href="#" class="moto-card__btn">Detalii</a>
+                <a href="" class="moto-card__btn">Detalii</a>
             </div>
     
             <div class="moto-card" data-category="toate,naked">
@@ -166,21 +164,157 @@
                     <div class="moto-card__price">
                         <span class="moto-card__price-val">67</span> <span class="moto-card__euro">€/zi</span>
                     </div>
-                    <img class="moto-card__icon" src="calendar.png" alt="calendar">
+                 
                 </div>
                 <a href="#" class="moto-card__btn">Detalii</a>
+            </div>
+
+            <div class="moto-card" data-category="toate,naked">
+                <div class="moto-card__img">
+                    <img src="yamaha-mt07.png" alt="Yamaha MT-07">
+                </div>
+                <div class="moto-card__name">Yamaha MT-07</div>
+                <div class="moto-card__bottom">
+                    <div class="moto-card__price">
+                        <span class="moto-card__price-val">55</span> <span class="moto-card__euro">€/zi</span>
+                    </div>
+                </div>
+                <a href="detalii_mt07.html" class="moto-card__btn">Detalii</a>
+            </div>
+
+            <div class="moto-card" data-category="toate,aventura">
+                <div class="moto-card__img">
+                    <img src="honda-cb500x.png" alt="Honda CB500X">
+                </div>
+                <div class="moto-card__name">Honda CB500X</div>
+                <div class="moto-card__bottom">
+                    <div class="moto-card__price">
+                        <span class="moto-card__price-val">52</span> <span class="moto-card__euro">€/zi</span>
+                    </div>
+                    
+                </div>
+                <a href="detalii_cb500x.html" class="moto-card__btn">Detalii</a>
+            </div>
+
+            <div class="moto-card" data-category="toate,aventura">
+                <div class="moto-card__img">
+                    <img src="suzuki-vstrom650.png" alt="Suzuki V-Strom 650">
+                </div>
+                <div class="moto-card__name">Suzuki V-Strom 650</div>
+                <div class="moto-card__bottom">
+                    <div class="moto-card__price">
+                        <span class="moto-card__price-val">59</span> <span class="moto-card__euro">€/zi</span>
+                    </div>
+                    
+                </div>
+                <a href="detalii_vstrom650.html" class="moto-card__btn">Detalii</a>
+            </div>
+
+            <div class="moto-card" data-category="toate,naked">
+                <div class="moto-card__img">
+                    <img src="kawasaki-z900.png" alt="Kawasaki Z900">
+                </div>
+                <div class="moto-card__name">Kawasaki Z900</div>
+                <div class="moto-card__bottom">
+                    <div class="moto-card__price">
+                        <span class="moto-card__price-val">62</span> <span class="moto-card__euro">€/zi</span>
+                    </div>
+
+                </div>
+                <a href="detalii_z900.html" class="moto-card__btn">Detalii</a>
+            </div>
+
+            <div class="moto-card" data-category="toate,turism">
+                <div class="moto-card__img">
+                    <img src="ducati-multistrada950.png" alt="Ducati Multistrada 950">
+                </div>
+                <div class="moto-card__name">Ducati Multistrada 950</div>
+                <div class="moto-card__bottom">
+                    <div class="moto-card__price">
+                        <span class="moto-card__price-val">75</span> <span class="moto-card__euro">€/zi</span>
+                    </div>
+                   
+                </div>
+                <a href="detalii_multistrada950.html" class="moto-card__btn">Detalii</a>
+            </div>
+
+            <div class="moto-card" data-category="toate,aventura">
+                <div class="moto-card__img">
+                    <img src="triumph-tiger900.png" alt="Triumph Tiger 900">
+                </div>
+                <div class="moto-card__name">Triumph Tiger 900</div>
+                <div class="moto-card__bottom">
+                    <div class="moto-card__price">
+                        <span class="moto-card__price-val">68</span> <span class="moto-card__euro">€/zi</span>
+                    </div>
+                </div>
+                <a href="detalii_tiger900.html" class="moto-card__btn">Detalii</a>
+            </div>
+
+            <div class="moto-card" data-category="toate,aventura">
+                <div class="moto-card__img">
+                    <img src="ktm-790adv.png" alt="KTM 790 Adventure">
+                </div>
+                <div class="moto-card__name">KTM 790 Adventure</div>
+                <div class="moto-card__bottom">
+                    <div class="moto-card__price">
+                        <span class="moto-card__price-val">66</span> <span class="moto-card__euro">€/zi</span>
+                    </div>
+                </div>
+                <a href="detalii_ktm790adv.html" class="moto-card__btn">Detalii</a>
+            </div>
+
+            <div class="moto-card" data-category="toate,turism">
+                <div class="moto-card__img">
+                    <img src="yamaha-tracer900.png" alt="Yamaha Tracer 900">
+                </div>
+                <div class="moto-card__name">Yamaha Tracer 900</div>
+                <div class="moto-card__bottom">
+                    <div class="moto-card__price">
+                        <span class="moto-card__price-val">64</span> <span class="moto-card__euro">€/zi</span>
+                    </div>
+                </div>
+                <a href="detalii_tracer900.html" class="moto-card__btn">Detalii</a>
+            </div>
+
+            <div class="moto-card" data-category="toate,aventura">
+                <div class="moto-card__img">
+                    <img src="honda-africatwin.png" alt="Honda Africa Twin">
+                </div>
+                <div class="moto-card__name">Honda Africa Twin</div>
+                <div class="moto-card__bottom">
+                    <div class="moto-card__price">
+                        <span class="moto-card__price-val">77</span> <span class="moto-card__euro">€/zi</span>
+                    </div>
+                </div>
+                <a href="detalii_africatwin.html" class="moto-card__btn">Detalii</a>
+            </div>
+
+            <div class="moto-card" data-category="toate,sport">
+                <div class="moto-card__img">
+                    <img src="suzuki-gsx-s750.png" alt="Suzuki GSX-S750">
+                </div>
+                <div class="moto-card__name">Suzuki GSX-S750</div>
+                <div class="moto-card__bottom">
+                    <div class="moto-card__price">
+                        <span class="moto-card__price-val">58</span> <span class="moto-card__euro">€/zi</span>
+                    </div>
+                </div>
+                <a href="detalii_gsx-s750.html" class="moto-card__btn">Detalii</a>
             </div>
 
         </div>
     </section>
     
-    <!-- Testimonial Section -->
+  
     <section class="testimonial-section">
         <div class="container">
             <div class="testimonial-card">
                 <div class="quote-mark-top">"</div>
                 <div class="testimonial-content">
-                    <div class="testimonial-image"></div>
+                    <div class="testimonial-img">
+                        <img class="moto-bg" src="image.png" width="150" height="250" alt="">
+                    </div>
                     <div class="testimonial-text-content">
                         <p class="testimonial-text">
                             Am creat Moto4Rent din pasiunea mea pentru motociclete. Suntem prezenți pe piața din Moldova din 2020, iar de atunci ne-am dezvoltat constant. Parcul nostru de motociclete a crescut considerabil, iar de fiecare dată am încercat să venim în sprijinul fiecărui client în parte.
@@ -194,18 +328,15 @@
         </div>
     </section>
 
-    <!-- Footer Section -->
     <footer class="footer-section">
         <div class="container">
             <div class="footer-main">
                 <div class="logo-section">
                     <a href="#" class="logo">
-                        <div class="logo-line1">
-                            MOTO<span class="logo-number">4</span>RENT
-                        </div>
+                        <img src="logo.png" alt="Moto4Rent">
                     </a>
                     <div class="social-links">
-                         <a href="https://www.facebook.com/" class="social-link facebook" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.facebook.com/" class="social-link facebook" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
                         <a href="https://www.instagram.com" class="social-link instagram" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
                         <a href="https://www.youtube.com" class="social-link youtube" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
                         <a href="https://www.tiktok.com" class="social-link tiktok" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
@@ -222,13 +353,13 @@
                             </li>
                             <li>
                                 <div class="info-icon"><i class="fa-solid fa-up-long"></i></div>
-                                <span>Cursuri de perfecionare</span>
+                                <span>Cursuri de perfecționare</span>
                             </li>
                         </ul>
                     </div>
 
                     <div class="info-column">
-                        <h3>Informaii utile</h3>
+                        <h3>Informații utile</h3>
                         <ul>
                             <li>
                                 <div class="info-icon"><i class="fa-solid fa-money-check"></i></div>
@@ -267,6 +398,15 @@
 
     <script src="slider.js"></script>
     <script src="filter.js"></script>
+    <script>
+        // Burger menu toggle
+        const burger = document.getElementById('burger-menu');
+        const nav = document.getElementById('main-nav');
+        burger.addEventListener('click', function() {
+            burger.classList.toggle('active');
+            nav.classList.toggle('active');
+        });
+    </script>
     <script>
         window.addEventListener('load', function() {
             setTimeout(function() {

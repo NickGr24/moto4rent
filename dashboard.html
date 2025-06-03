@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard Superuser | Moto4Rent</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="nav.css">
+    <link rel="stylesheet" href="footer.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Add Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Moto4Rent">
+        </div>
+        <nav>
+            <a href="index.html">ACASĂ</a>
+            <a href="about.html">DESPRE NOI</a>
+            <a href="moto.html">MOTOCICLETE</a>
+            <a href="contacts.html">CONTACTE</a>
+        </nav>
+        <div class="cont-personal">
+            <a href="login.html">CONT PERSONAL</a>
+        </div>
+    </header>
+    <main class="dashboard-container">
+        <h1>Panou de control - Superuser</h1>
+        <section class="dashboard-actions">
+            <h2>Administrare Motociclete</h2>
+            <form id="add-moto-form" class="dashboard-form">
+                <input type="text" id="moto-name" placeholder="Nume motocicletă" required>
+                <input type="number" id="moto-price" placeholder="Preț €/zi" required min="1">
+                <input type="text" id="moto-category" placeholder="Categorie (ex: sport, turism)" required>
+                <button type="submit">Adaugă motocicletă</button>
+            </form>
+            <div id="moto-list-section">
+                <h3>Lista motocicletelor</h3>
+                <table id="moto-table">
+                    <thead>
+                        <tr>
+                            <th>Imagine</th>
+                            <th>Nume</th>
+                            <th></th>
+                            <th>Preț</th>
+                            <th>Categorie</th>
+                            <th>Vizualizări</th>
+                            <th>Acțiuni</th>
+                        </tr>
+                    </thead>
+                    <tbody id="moto-table-body">
+                        <!-- Populat din JS -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <section class="dashboard-stats">
+            <h2>Statistici vizualizări motociclete</h2>
+            <canvas id="moto-stats-chart" width="600" height="300"></canvas>
+        </section>
+    </main>
+    <!-- Modal for moto info -->
+    <div id="moto-info-modal" class="moto-info-modal">
+        <div class="moto-info-modal-content">
+            <span class="moto-info-modal-close" id="moto-info-modal-close">&times;</span>
+            <h3 id="moto-info-modal-title"></h3>
+            <div id="moto-info-modal-body"></div>
+        </div>
+    </div>
+    <script src="dashboard.js"></script>
+</body>
+</html>

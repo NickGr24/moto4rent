@@ -123,38 +123,52 @@
 .logo-section {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
 }
 
 .logo {
     color: white;
     text-decoration: none;
-    margin-bottom: 32px;
+    margin-bottom: 10px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
 
-.logo-line1 {
-    font-size: 38px;
-    font-weight: 900;
-    letter-spacing: 2px;
-    line-height: 0.9;
+.logo img {
+    height: 64px;
+    width: auto;
+    display: block;
+    margin-bottom: 0;
+    margin-top: 0;
+    max-width: 90vw;
+}
+
+/* Social links directly below logo */
+.social-links {
+    display: flex;
+    gap: 14px;
+    margin-top: 14px;
+    margin-bottom: 0;
+}
+
+.social-link {
+    width: 44px;
+    height: 44px;
+    background: rgba(0, 0, 0, 0.18);
+    border-radius: 8px;
     display: flex;
     align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: white;
+    font-size: 22px;
+    transition: background 0.2s, transform 0.2s;
 }
 
-.logo-number {
-    font-size: 70px;
-    font-weight: 900;
-    margin: 0 8px;
-    transform: translateY(5px);
-}
-
-.logo-line2 {
-    font-size: 28px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    margin-top: 5px;
+.social-link:hover {
+    background: rgba(0, 0, 0, 0.35);
+    transform: translateY(-2px) scale(1.08);
 }
 
 .info-grid {
@@ -231,31 +245,6 @@
     margin-top: 2px;
 }
 
-.social-links {
-    display: flex;
-    gap: 14px;
-    margin-top: 24px;
-}
-
-.social-link {
-    width: 44px;
-    height: 44px;
-    background: rgba(0, 0, 0, 0.18);
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    color: white;
-    font-size: 22px;
-    transition: background 0.2s, transform 0.2s;
-}
-
-.social-link:hover {
-    background: rgba(0, 0, 0, 0.35);
-    transform: translateY(-2px) scale(1.08);
-}
-
 @media (max-width: 1200px) {
     .container {
         padding: 0 30px;
@@ -273,56 +262,34 @@
     .container {
         padding: 0 16px;
     }
-    .testimonial-card {
-        padding: 40px 30px;
-    }
-
-    .testimonial-content {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 30px;
-    }
-
     .footer-main {
         grid-template-columns: 1fr;
         gap: 32px;
         text-align: center;
     }
-
     .info-grid {
         grid-template-columns: 1fr;
         gap: 24px;
     }
-
-    .logo {
+    .logo-section {
         align-items: center;
     }
-
-    .logo-line1 {
-        font-size: 30px;
+    .logo {
+        align-items: center;
+        margin-bottom: 8px;
     }
-
-    .logo-number {
-        font-size: 48px;
+    .logo img {
+        height: 44px;
+    }
+    .social-links {
+        margin-top: 10px;
     }
 }
 
 @media (max-width: 480px) {
-    .testimonial-section {
-        padding: 50px 0;
-    }
-
     .footer-section {
-       
-    }
-
-    .testimonial-text {
-        font-size: 16px;
-    }
-
-    .quote-mark-top,
-    .quote-mark-bottom {
-        font-size: 60px;
+        padding: 30px 0 15px;
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
     }
 }

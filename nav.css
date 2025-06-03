@@ -15,26 +15,71 @@ header {
     height: 70px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 0 48px;
+    justify-content: flex-start;
+    padding: 0 30px;
     position: fixed;
     top: 0;
     left: 0;
     background: #FCF9F6;
     z-index: 10;
     border-bottom: 2px solid #ff6600;
-
+    gap: 0;
 }
 
-
+.logo {
+    position: static;
+    left: unset;
+    transform: none;
+    z-index: 12;
+    margin-right: 40px;
+}
 
 .logo img {
-    height: 64px;
+    height: 74px;
+}
+
+.burger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    z-index: 20;
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.burger-menu span {
+    display: block;
+    height: 4px;
+    width: 100%;
+    background: #ff6600;
+    margin: 5px 0;
+    border-radius: 2px;
+    transition: all 0.3s;
+}
+
+.burger-menu.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+.burger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+.burger-menu.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
 }
 
 nav {
     display: flex;
-    gap: 32px;
+    gap: 60px;
+    position: static;
+    background: none;
+    transition: none;
+    flex: 1 1 auto;
+    justify-content: center; /* Center the links horizontally */
 }
 
 nav a {
@@ -43,11 +88,20 @@ nav a {
     text-decoration: none;
     font-size: 16px;
     transition: color 0.2s;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
 }
 
 nav a:hover {
     color: #222;
+}
+
+.cont-personal {
+    position: static;
+    margin-left: auto;
+    right: unset;
+    top: unset;
+    transform: none;
+    z-index: 12;
 }
 
 .cont-personal a {
@@ -66,5 +120,63 @@ nav a:hover {
 .cont-personal a:hover {
     background: #ff6600;
     color: #fff;
+}
+
+/* Responsive styles */
+@media (max-width: 900px) {
+    nav {
+        gap: 40px;
+        justify-content: center; /* Keep centered on tablet */
+    }
+}
+
+@media (max-width: 700px) {
+    header {
+        justify-content: center;
+        padding: 0 10px;
+        flex-direction: row;
+    }
+    .logo {
+        margin: 0 auto 0 0;
+        position: static;
+        left: unset;
+        transform: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    nav {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100vw;
+        background: #FCF9F6;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        padding: 30px 0 20px 0;
+        transform: translateY(-120%);
+        opacity: 0;
+        pointer-events: none;
+        transition: transform 0.3s, opacity 0.3s;
+        z-index: 15;
+        justify-content: center; /* Center links in mobile menu */
+    }
+    nav.active {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+    .logo {
+        margin: 0 auto;
+        justify-content: center;
+    }
+    .cont-personal {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
 }
 

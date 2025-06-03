@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <title>Yamaha MT-07 — Detalii motocicletă | Moto4rent</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+  <style>
+    body { font-family: 'Segoe UI', Arial, sans-serif; margin:0; background: #faf8f6; color: #232323;}
+    .detail-container { max-width: 900px; margin: 50px auto 30px auto; background: #fff; border-radius: 18px; box-shadow: 0 8px 36px 0 rgba(80,60,10,0.09); padding: 34px 22px 38px 22px;}
+    h1 { color: #ff6600; font-size: 2.2rem; margin-bottom: 12px; font-weight: 900; letter-spacing: 1.3px;}
+    .subtitle { font-size: 1.18rem; color: #454545; margin-bottom: 20px;}
+    .moto-main { display: flex; gap: 38px; flex-wrap: wrap; align-items: flex-start; margin-bottom: 32px;}
+    .moto-img { flex: 1 1 290px; }
+    .moto-img img { width: 100%; max-width: 340px; border-radius: 15px; box-shadow: 0 6px 32px 0 rgba(255,110,20,0.11);}
+    .moto-specs { flex: 2 1 320px; }
+    .spec-list { list-style: none; padding: 0; font-size: 1.09rem;}
+    .spec-list li { margin-bottom: 12px; }
+    .spec-label { font-weight: 600; color: #ff6600; }
+    .price { font-size: 1.36rem; font-weight: bold; margin: 22px 0 16px 0; color: #ff6600;}
+    .add-equip { margin-bottom: 14px;}
+    .add-equip label {margin-right:18px;}
+    .add-equip input[type=checkbox] { accent-color: #ff6600;}
+    .rezerva-btn { background: #ff6600; color: #fff; border: none; border-radius: 8px; font-size: 1.14rem; font-weight: 700; padding: 12px 42px; cursor: pointer; transition: background 0.2s;}
+    .rezerva-btn:hover { background: #232323;}
+    .total-row { font-size: 1.17rem; color: #232323; margin: 16px 0 12px 0;}
+    @media (max-width:800px) {
+      .moto-main { flex-direction: column; gap: 14px;}
+      .moto-img img {max-width: 99vw;}
+    }
+    .back-link { display: inline-block; margin-bottom: 14px; color: #ff6600; text-decoration: none; font-weight: 600; transition: color 0.18s;}
+    .back-link:hover {color: #232323; text-decoration: underline;}
+  </style>
+</head>
+<body>
+  <div class="detail-container" data-aos="fade-up">
+    <a href="moto.html" class="back-link" data-aos="fade-right">&#8592; Înapoi la catalog</a>
+    <h1 data-aos="fade-down">Yamaha MT-07</h1>
+    <div class="subtitle" data-aos="fade-up" data-aos-delay="100">Un naked agil, perfect pentru oraș și drumuri virajate!</div>
+    <div class="moto-main">
+      <div class="moto-img" data-aos="zoom-in">
+        <img src="yamaha-mt07.png" alt="Yamaha MT-07">
+      </div>
+      <div class="moto-specs" data-aos="fade-left" data-aos-delay="200">
+        <ul class="spec-list">
+          <li><span class="spec-label">Marcă:</span> Yamaha</li>
+          <li><span class="spec-label">Model:</span> MT-07</li>
+          <li><span class="spec-label">Tip:</span> Naked</li>
+          <li><span class="spec-label">Distanță parcursă:</span> 34 000 km</li>
+          <li><span class="spec-label">Putere:</span> 75 CP</li>
+          <li><span class="spec-label">Greutate:</span> 184 kg</li>
+          <li><span class="spec-label">Capacitate rezervor:</span> 14 L</li>
+          <li><span class="spec-label">Înălțime șa:</span> 805 mm</li>
+          <li><span class="spec-label">ABS:</span> Da</li>
+          <li><span class="spec-label">An fabricație:</span> 2021</li>
+        </ul>
+        <div class="price">55 €/zi</div>
+        <form id="equip-form" class="add-equip">
+          <label><input type="checkbox" class="equip-check" value="15">Cască (+15€)</label>
+          <label><input type="checkbox" class="equip-check" value="15">Cască pasager (+15€)</label>
+          <label><input type="checkbox" class="equip-check" value="15">Jachetă (+15€)</label>
+          <label><input type="checkbox" class="equip-check" value="15">Mănuși (+15€)</label>
+        </form>
+        <div class="total-row">Total: <span id="total-price">55</span> €</div>
+        <button class="rezerva-btn" onclick="alert('Rezervarea a fost trimisă!\nVă mulțumim!')">Rezervă acum</button>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init({duration: 900, once: true});
+    // dinamică pentru preț total cu echipament:
+    const basePrice = 55;
+    const checks = document.querySelectorAll('.equip-check');
+    const totalSpan = document.getElementById('total-price');
+    checks.forEach(chk => {
+      chk.addEventListener('change', function() {
+        let extra = 0;
+        checks.forEach(c => {if(c.checked) extra += 15;});
+        totalSpan.textContent = basePrice + extra;
+      });
+    });
+  </script>
+</body>
+</html>
